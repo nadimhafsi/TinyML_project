@@ -68,7 +68,7 @@ Le notebook pour l’entraînement :
 ### Courbes d'entraînement
 
 - Accuracy :  
-  ![training_accuracy](images/training_accuracy.png)  
+  ![gyroscope_signals](https://drive.google.com/uc?export=download&id=1Zwqexepmc6YmBwdBS4rLXMJIIKIqnm2s) 
 - Loss :  
   ![training_loss](images/training_loss.png)
 
