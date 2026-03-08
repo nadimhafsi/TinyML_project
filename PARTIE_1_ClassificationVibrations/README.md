@@ -24,7 +24,7 @@ Les vibrations sont classées en **trois catégories** :
 
 Cette partie est organisé selon la structure suivante :
 
-## Structure du projet
+## Structure de partie 1
 PARTIE_1_ClassificationVibrations/
 ├── README.md
 ├── 1-DataGeneration_Arduino/
@@ -37,3 +37,22 @@ PARTIE_1_ClassificationVibrations/
 │ └── inference_vibrations.ino
 └── doc/
 └── documentation.md
+
+
+
+---
+
+# 3. Collecte des données (Arduino)
+
+Les données sont collectées à l’aide du **capteur IMU intégré à la carte Arduino Nano 33 BLE**.
+
+Le programme Arduino lit en continu :
+
+- l'accélération (aX, aY, aZ)
+- la vitesse angulaire (gX, gY, gZ)
+
+Ces données sont envoyées au PC via **Serial Monitor** au format CSV.
+
+Format des données :
+![Architecture projet]([https://drive.google.com/uc?export=download&id=FILE_ID](https://drive.google.com/uc?export=download&id=1mlT16ec7p0rEYS0jFpizkr3lV9C3n5o6
+))
