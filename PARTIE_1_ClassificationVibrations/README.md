@@ -75,7 +75,7 @@ Le notebook pour l’entraînement :
 ### Évaluation
 
 - Test accuracy et matrice de confusion  
-  ![confusion_matrix](images/confusion_matrix.png)
+   ![Évaluation](https://drive.google.com/uc?export=download&id=1Yr5DHZ2iKc1C8Aa7cGH4xuwlq9UpJs2F) 
 
 ---
 
@@ -102,6 +102,9 @@ Le modèle est utilisé dans le fichier :
 - Affiche la classe prédite dans le **Serial Monitor**
 
 ---
+## 7. Fichiers importants
 
-## 7. Organisation des images
+- `data_generation.ino` : collecte de données  
+- `training_vibrations.ipynb` : entraînement et export du modèle  
+- `inference_vibrations.ino` : déploiement sur Arduino
 
