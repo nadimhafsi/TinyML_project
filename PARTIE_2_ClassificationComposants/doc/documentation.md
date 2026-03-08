@@ -79,7 +79,8 @@ Le sketch principal : `arduino_camera_classification.ino`
 
 ### Exemple de sortie dans le Serial Monitor :
 
-![Serial Monitor Arduino](images/serial_monitor_results.png)
+
+![Serial Monitor Arduino](https://drive.google.com/uc?export=download&id=1Gowof76eaPdYQb-9pvdhfNI2VLcn5XsJ)
 
 - Affiche la classe détectée et le score de confiance  
 - Permet de vérifier que le modèle fonctionne avant de transmettre les données à Node-RED  
