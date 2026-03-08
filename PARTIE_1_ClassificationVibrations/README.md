@@ -84,5 +84,5 @@ Projet académique TinyML – Classification des vibrations.
 Ce projet est développé dans un cadre académique et vise à démontrer l’utilisation de l’intelligence artificielle embarquée sur microcontrôleur.
 
 
-- 
+
 
