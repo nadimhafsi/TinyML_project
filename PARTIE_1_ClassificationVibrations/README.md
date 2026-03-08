@@ -24,19 +24,19 @@ Les vibrations sont classées en **trois catégories** :
 
 Cette partie est organisé selon la structure suivante :
 
-├── PARTIE_1_ClassificationVibrations/
-│ ├── README.md # Explications spécifiques à la partie 1
-│ ├── 1-DataGeneration_Arduino/
-│ │ ├── data_generation.ino # Code Arduino pour la génération/collecte de données
-│ │ └── ...
-│ ├── 2-Training/
-│ │ ├── dataset/ # Contient les données d'entraînement (collectées via Arduino)
-│ │ ├── notebooks/
-│ │ │ └── training_vibrations.ipynb
-│ │ ├── models/
-│ │ └── ...
-│ ├── 3-Inference_Arduino/
-│ │ ├── inference_vibrations.ino
-│ │ └── ...
-│ └── doc/
-│ └── documentation.md
+PARTIE_1_ClassificationVibrations/
+├── README.md # Explications spécifiques à la partie 1
+├── 1-DataGeneration_Arduino/
+│ ├── data_generation.ino # Code Arduino pour la génération/collecte de données
+│ └── ...
+├── 2-Training/
+│ ├── dataset/ # Contient les données d'entraînement (collectées via Arduino)
+│ ├── notebooks/
+│ │ └── training_vibrations.ipynb
+│ ├── models/ # Modèle(s) issu(s) de l'entraînement
+│ └── ...
+├── 3-Inference_Arduino/
+│ ├── inference_vibrations.ino
+│ └── ...
+└── doc/
+└── documentation.md
