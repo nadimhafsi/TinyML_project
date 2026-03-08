@@ -89,4 +89,48 @@ Le sketch principal : `arduino_camera_classification.ino`
 
 ## 6. Envoi des résultats à Node-RED
 
-- Les prédictions Arduino sont envoyées via la communication série au format :  
+- Les prédictions Arduino sont envoyées via la communication série au format :
+
+CLASS:LED
+CLASS:Resistor
+CLASS:Capacitor
+CLASS:Diodes
+
+
+- Node-RED reçoit les informations et incrémente le compteur correspondant à chaque classe
+
+---
+
+## 7. Visualisation avec Node-RED
+
+Le flow Node-RED et le dashboard permettent de visualiser en temps réel :
+
+- Nombre de LED détectées  
+- Nombre de résistances détectées  
+- Nombre de condensateurs détectés
+- Nombre de diodes détectés   
+
+![Serial Monitor Arduino](https://drive.google.com/uc?export=download&id=1ikJ3nZKpXwDquOyiEBJrRDA71ZprqTyZ)
+
+---
+
+## 8. Résultat du système
+
+Le système complet permet de :
+
+- Capturer et analyser une image  
+- Identifier le composant électronique  
+- Transmettre la classe détectée à Node-RED  
+- Mettre à jour automatiquement les compteurs dans le dashboard  
+
+Toutes les opérations sont réalisées en temps réel.
+
+---
+
+## 9. Conclusion
+
+Cette partie démontre l’efficacité de **Edge Impulse** pour créer un modèle optimisé pour un microcontrôleur et l’utilisation de **Node-RED** pour la visualisation et le comptage des composants électroniques.  
+
+Le système est autonome, rapide et peut être étendu à d’autres types de composants ou objets.
+
+---
