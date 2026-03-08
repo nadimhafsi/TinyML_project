@@ -1,18 +1,13 @@
-# Edge Impulse Project Link
+# Lien vers le projet Edge Impulse
 
-Ce projet utilise la plateforme **Edge Impulse** pour entraîner un modèle de classification d’images destiné à reconnaître différents composants électroniques.
+Ce fichier contient l'URL de notre projet **Edge Impulse** pour la classification des composants électroniques.
 
-Le projet Edge Impulse est accessible via le lien suivant :
+Vous pouvez accéder au projet via le lien ci-dessous :
 
-https://studio.edgeimpulse.com/public/883917/live
+[Accéder au projet Edge Impulse](https://studio.edgeimpulse.com/public/923788/live)
 
-Ce lien permet d’accéder à :
-- la base de données d’images utilisée pour l’entraînement
-- le pipeline de traitement des données
-- la configuration de l’impulse
-- l’entraînement du modèle
-- les résultats de performance
+---
 
-Le projet a été configuré pour fonctionner avec la carte :
-
-Arduino Nano 33 BLE Sense
+**Remarque :**  
+- Toutes les étapes d'importation des images, d'étiquetage, d'entraînement et de test ont été réalisées directement sur la plateforme Edge Impulse.  
+- Le modèle exporté est utilisé dans l’Arduino Nano 33 BLE pour l’inférence en temps réel.
