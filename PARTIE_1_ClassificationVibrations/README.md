@@ -54,5 +54,4 @@ Le programme Arduino lit en continu :
 Ces données sont envoyées au PC via **Serial Monitor** au format CSV.
 
 Format des données :
-![Architecture projet]([https://drive.google.com/uc?export=download&id=FILE_ID](https://drive.google.com/uc?export=download&id=1mlT16ec7p0rEYS0jFpizkr3lV9C3n5o6
-))
+![Architecture projet](https://drive.google.com/uc?export=download&id=1mlT16ec7p0rEYS0jFpizkr3lV9C3n5o6)
