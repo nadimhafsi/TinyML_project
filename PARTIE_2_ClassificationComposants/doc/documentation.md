@@ -1,167 +1,91 @@
-# Documentation – Classification de composants électroniques
+# Documentation – Partie 2 : Classification et comptage de composants électroniques
 
-## 1. Introduction
-
-Cette deuxième partie du projet consiste à développer un système de classification d’images capable de reconnaître différents composants électroniques à l’aide d’une caméra connectée à une carte Arduino.
-
-Le système utilise la plateforme **Edge Impulse** pour entraîner un modèle de vision embarquée, puis déploie ce modèle sur l’Arduino afin d’effectuer l’inférence directement sur le microcontrôleur.
-
-Les résultats de classification sont ensuite transmis à **Node-RED**, qui permet de compter les composants détectés et de les afficher sur un tableau de bord.
+Cette partie du projet présente le développement d’un système capable de **classer des composants électroniques** (LED, diode, résistance, condensateur) à l’aide d’une caméra OV7670 et d’une carte Arduino Nano 33 BLE, avec visualisation et comptage via Node-RED.
 
 ---
 
-# 2. Objectif du système
+## 1. Objectif du système
 
-L'objectif est de créer un système capable de :
+L’objectif est de créer un système capable de :
 
-1. Capturer une image avec la caméra OV7670
-2. Identifier le composant électronique présent dans l'image
-3. Envoyer la classe détectée à Node-RED
-4. Mettre à jour un compteur pour chaque type de composant
-
----
-
-# 3. Matériel utilisé
-
-Le système repose sur les composants suivants :
-
-- Arduino Nano 33 BLE
-- caméra OV7670
-- ordinateur pour l’entraînement du modèle
-- Node-RED pour la visualisation des résultats
+- Capturer une image avec la caméra OV7670
+- Identifier le composant électronique présent dans l'image
+- Envoyer la classe détectée à Node-RED
+- Mettre à jour un compteur pour chaque type de composant détecté
 
 ---
 
-# 4. Entraînement du modèle avec Edge Impulse
+## 2. Matériel utilisé
 
-L'entraînement du modèle est réalisé sur la plateforme **Edge Impulse**.
-
-Le processus se déroule en plusieurs étapes :
-
-### 4.1 Création du projet
-
-Un projet a été créé sur la plateforme Edge Impulse.
-
-Insérer ici une capture du **dashboard Edge Impulse**.
+- Arduino Nano 33 BLE  
+- Caméra OV7670  
+- Ordinateur pour l’entraînement du modèle Edge Impulse  
+- Node-RED pour la visualisation et le comptage
 
 ---
 
-### 4.2 Import des images
+## 3. Entraînement du modèle avec Edge Impulse
 
-Les images des composants électroniques sont importées dans Edge Impulse.
+Le modèle est entraîné sur la plateforme Edge Impulse via les étapes suivantes :
 
-Chaque image est associée à une **étiquette (label)** correspondant au type de composant.
+### 3.1 Création du projet
 
-Exemple de labels :
+Un projet Edge Impulse a été créé pour la classification des composants électroniques.  
 
-- LED
-- Resistance
-- Capacitor
+### 3.2 Import des images
 
-Insérer ici une capture du **dataset dans Edge Impulse**.
+Les images sont importées dans Edge Impulse et étiquetées avec leur classe correspondante :  
 
----
+- LED  
+- Resistance  
+- Capacitor  
+- Diode  
 
-### 4.3 Création de l'impulse
+### 3.3 Création de l’impulse
 
-L'impulse définit le pipeline de traitement du modèle.
+L’impulse définit le pipeline de traitement des images :
 
-Il contient généralement :
+- Image preprocessing  
+- Feature extraction  
+- Classification  
 
-1. **Image preprocessing**
-2. **Feature extraction**
-3. **Classification**
+### 3.4 Entraînement du modèle
 
-Insérer ici une capture du **pipeline Edge Impulse**.
+Le modèle est entraîné sur le dataset. La capture ci-dessous montre **l’accuracy et la perte** obtenues :  
 
----
-
-### 4.4 Entraînement du modèle
-
-Le modèle est ensuite entraîné sur les images du dataset.
-
-Edge Impulse entraîne automatiquement un réseau de neurones optimisé pour les systèmes embarqués.
-
-Insérer ici une capture :
-
-- de l'entraînement
-- de la précision du modèle
+![Accuracy Edge Impulse](https://drive.google.com/uc?export=download&id=124Ram3KNg-cDL2SqVXJnq1PGRuLgJ_5M)
 
 ---
 
-# 5. Export du modèle pour Arduino
+## 4. Export du modèle pour Arduino
 
-Une fois le modèle entraîné, Edge Impulse permet de l’exporter sous forme d'une **bibliothèque Arduino**.
-
-Cette bibliothèque contient :
-
-- le modèle TensorFlow Lite
-- les fonctions nécessaires pour exécuter l’inférence
-- les fichiers de configuration du modèle
-
-Le modèle est ensuite intégré dans le projet Arduino.
+- Export en bibliothèque Arduino via Edge Impulse  
+- Contient le modèle TensorFlow Lite et les fonctions pour l’inférence  
+- Intégration dans le projet Arduino pour exécuter l’inférence en temps réel  
 
 ---
 
-# 6. Inférence sur Arduino
+## 5. Inférence sur Arduino
 
-Le programme principal utilisé pour la classification est :
-arduino_camera_classification.ino
+Le sketch principal : `arduino_camera_classification.ino`  
 
+Étapes réalisées par le programme :
 
-Ce programme réalise les étapes suivantes :
+1. Initialisation de la caméra OV7670  
+2. Capture d’une image  
+3. Prétraitement de l’image  
+4. Exécution du modèle Edge Impulse  
+5. Obtention de la classe prédite  
 
-1. Initialisation de la caméra OV7670
-2. Capture d'une image
-3. Prétraitement de l'image
-4. Exécution du modèle Edge Impulse
-5. Obtention de la classe prédite
+### Exemple de sortie dans le Serial Monitor :
 
----
+![Serial Monitor Arduino](images/serial_monitor_results.png)
 
-# 7. Envoi des résultats à Node-RED
-
-Après la classification, la classe prédite est envoyée à Node-RED via la communication série.
-
-Exemple de message envoyé :
-- ![Architecture projet](https://drive.google.com/uc?export=download&id=1Xn27bgO0XYV5KzZxmSAzZ-f-a2Dn8a8R)
-  
-Node-RED reçoit cette information et met à jour les compteurs correspondants.
+- Affiche la classe détectée et le score de confiance  
+- Permet de vérifier que le modèle fonctionne avant de transmettre les données à Node-RED  
 
 ---
 
-# 8. Visualisation avec Node-RED
+## 6. Envoi des résultats à Node-RED
 
-Node-RED permet de créer une interface graphique affichant :
-
-- le nombre de LED détectées
-- le nombre de résistances détectées
-- le nombre de condensateurs détectés
-
-Un **dashboard Node-RED** est utilisé pour afficher ces informations en temps réel.
-
-Insérer ici une capture :
-
-- du flow Node-RED
-- du dashboard Node-RED
-
----
-
-# 9. Résultat du système
-
-Le système est capable de :
-
-- capturer une image
-- identifier le composant électronique
-- transmettre la classe détectée
-- mettre à jour un compteur dans Node-RED
-
-Les résultats sont affichés en temps réel sur le tableau de bord.
-
----
-
-# 10. Conclusion
-
-Cette deuxième partie du projet démontre qu'il est possible d'utiliser des techniques de vision embarquée pour reconnaître des objets à l'aide d'un microcontrôleur.
-
-L'utilisation de Edge Impulse facilite la création de modèles optimisés pour les systèmes embarqués, tandis que Node-RED permet de visualiser les résultats et d'interagir avec les données produites par le système.
+- Les prédictions Arduino sont envoyées via la communication série au format :  
