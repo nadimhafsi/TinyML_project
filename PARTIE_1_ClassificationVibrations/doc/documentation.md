@@ -101,6 +101,12 @@ Le modèle est utilisé dans le fichier :
 - Normalise et applique le modèle  
 - Affiche la classe prédite dans le **Serial Monitor**
 
+### Résultat sur Arduino
+
+Voici un exemple de résultat obtenu sur le Serial Monitor après avoir testé différentes vibrations( Idle et High) :
+
+![Résultat Arduino Serial Monitor](https://drive.google.com/uc?export=download&id=14vpnYl1gachb_31RAtXU4oQXrpADAcLe) 
+
 ---
 ## 7. Fichiers importants
 
