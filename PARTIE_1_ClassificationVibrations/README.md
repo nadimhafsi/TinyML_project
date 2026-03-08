@@ -42,7 +42,7 @@ Le notebook pour l’entraînement :
    - **Accélération**  
      ![acceleration_signals](https://drive.google.com/uc?export=download&id=1hSjkbLmdytaqDIyQJFInKn2PKx7jYoQZ)
    - **Gyroscope**  
-     ![gyroscope_signals](images/gyroscope_signals.png)
+     ![gyroscope_signals](https://drive.google.com/uc?export=download&id=1Fl5dKlFO2pW_KrYxQgBayDbrlP2Gy-11)
 3. Découpage en **fenêtres temporelles** (sliding window)  
    - `WINDOW_SIZE = 100`  
    - `STRIDE = 30`
