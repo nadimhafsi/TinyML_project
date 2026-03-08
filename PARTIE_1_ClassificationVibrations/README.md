@@ -1,6 +1,6 @@
 # TinyML Project – Classification des Vibrations
 
-## 📌 Présentation du projet
+##  Présentation du projet
 
 Ce projet a pour objectif de développer un système intelligent de **classification des vibrations** en utilisant les techniques de **TinyML**.
 
@@ -10,7 +10,7 @@ Un modèle de réseau de neurones léger est entraîné avec **TensorFlow** puis
 
 ---
 
-## 🎯 Objectif principal
+##  Objectif principal
 
 Le projet permet de :
 
@@ -31,7 +31,7 @@ Les vibrations sont classées en trois catégories :
 
 ---
 
-## 🔧 Technologies utilisées
+##  Technologies utilisées
 
 - Arduino Nano 33 BLE  
 - Capteur IMU intégré (Accéléromètre + Gyroscope)  
@@ -45,7 +45,7 @@ Les vibrations sont classées en trois catégories :
 
 ---
 
-## ⚙️ Pipeline du projet
+##  Pipeline du projet
 
 1. Collecte des données vibration
 2. Visualisation des signaux capteurs
@@ -56,7 +56,7 @@ Les vibrations sont classées en trois catégories :
 
 ---
 
-## 📊 Résultats du modèle
+##  Résultats du modèle
 
 Les performances du modèle sont évaluées à l’aide de :
 
@@ -67,7 +67,7 @@ Les performances du modèle sont évaluées à l’aide de :
 
 ---
 
-## 📁 Fichiers principaux
+##  Fichiers principaux
 
 - `data_generation.ino` → collecte des données IMU  
 - `training_vibrations.ipynb` → entraînement du modèle  
@@ -76,7 +76,7 @@ Les performances du modèle sont évaluées à l’aide de :
 
 ---
 
-## 👨‍💻 Auteur
+##  Auteur
 
 HAFSI Nadim / 3ème Instrumentation
 Projet académique TinyML – Classification des vibrations.
