@@ -1,0 +1,227 @@
+[
+    {
+        "id": "b34cc6910e364812",
+        "type": "tab",
+        "label": "Flux 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "45ab011ff8b51e10",
+        "type": "serial in",
+        "z": "b34cc6910e364812",
+        "name": "COM",
+        "serial": "f4c0e99b4587c687",
+        "x": 230,
+        "y": 240,
+        "wires": [
+            [
+                "a40e6c371c080334"
+            ]
+        ]
+    },
+    {
+        "id": "a40e6c371c080334",
+        "type": "function",
+        "z": "b34cc6910e364812",
+        "name": "Parse CLASS",
+        "func": "// msg.payload contient la ligne Serial, exemple \"CLASS:LED\"\nvar line = msg.payload.trim();\n\nif(line.startsWith(\"CLASS:\")){\n    msg.payload = line.replace(\"CLASS:\", \"\"); // Ex: \"LED\"\n    return msg;\n}\nreturn null; // ignore autres lignes",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 240,
+        "wires": [
+            [
+                "d08f12193fc4d088"
+            ]
+        ]
+    },
+    {
+        "id": "d08f12193fc4d088",
+        "type": "function",
+        "z": "b34cc6910e364812",
+        "name": "Count Components",
+        "func": "// récupérer le contexte flow pour stocker les compteurs\nvar counts = flow.get(\"counts\") || {LED:0,Resistor:0,Capacitor:0,Diode:0};\n\nvar comp = msg.payload;\n\nif(counts.hasOwnProperty(comp)){\n    counts[comp] += 1;\n    flow.set(\"counts\", counts);\n}\n\n// envoyer les compteurs vers le dashboard\nmsg.payload = counts;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 240,
+        "wires": [
+            [
+                "0cfb56f6d89438b6",
+                "c6479c831aefb1b3",
+                "343b0f4b872564bf",
+                "753506c33a15b352"
+            ]
+        ]
+    },
+    {
+        "id": "0cfb56f6d89438b6",
+        "type": "ui_gauge",
+        "z": "b34cc6910e364812",
+        "name": "",
+        "group": "2fcda72ecf61bb8f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "LED",
+        "label": "units",
+        "format": "msg.payload.LED",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 950,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "c6479c831aefb1b3",
+        "type": "ui_gauge",
+        "z": "b34cc6910e364812",
+        "name": "",
+        "group": "2fcda72ecf61bb8f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Resistor",
+        "label": "units",
+        "format": "msg.payload.Resistor",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 960,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "343b0f4b872564bf",
+        "type": "ui_gauge",
+        "z": "b34cc6910e364812",
+        "name": "",
+        "group": "2fcda72ecf61bb8f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Capacitor",
+        "label": "units",
+        "format": "msg.payload.Capacitor",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 960,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "753506c33a15b352",
+        "type": "ui_gauge",
+        "z": "b34cc6910e364812",
+        "name": "",
+        "group": "2fcda72ecf61bb8f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Diode",
+        "label": "units",
+        "format": "msg.payload.Diode",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 950,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "f4c0e99b4587c687",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM6",
+        "serialbaud": "57600",
+        "databits": 8,
+        "parity": "none",
+        "stopbits": 1,
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": 10000
+    },
+    {
+        "id": "2fcda72ecf61bb8f",
+        "type": "ui_group",
+        "name": "Composants",
+        "tab": "ce91744b62debd78",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ce91744b62debd78",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "8c88dcbe8e8510f1",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-node-serialport": "2.0.3",
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]
